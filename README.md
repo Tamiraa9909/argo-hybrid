@@ -49,7 +49,7 @@ Agar mesin Xray dan tunnel Argo dapat berjalan, kamu wajib memasukkan konfiguras
 3. Klik **New Variable** (atau *RAW Editor* untuk *paste* massal) dan tambahkan variabel berikut satu per satu:
    * `UUID` : *(Isi dengan UUID milikmu, contoh: `9afd1229-b893-40c1-84dd-51e7ce204913`)*
    * `ARGO_DOMAIN` : *(Isi dengan domain Zero Trust kamu, contoh: `tes.domainkamu.com`)*
-   * `ARGO_AUTH` : *(Isi dengan token dari tunnel Cloudflare)*
+   * `ARGO_AUTH` : *(Isi dengan token dari tunnel Cloudflare `ey********`, tanpa cloudflared.exe service install)*
    * `CFIP` : *(Opsional, isi dengan Bug IP CDN/SNI jika ingin mengganti default `saas.sin.fan`)*
 4. Setelah variabel dimasukkan, Railway akan mendeteksi perubahan dan melakukan **Redeploy** secara otomatis. Tunggu hingga proses *build* selesai.
 
