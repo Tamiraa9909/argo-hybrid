@@ -7,9 +7,9 @@
 ---
 
 ## ⚡ Fitur Utama
-* **WELCOME Dashboard:** Antarmuka UI premium (Dark Mode, Glassmorphism, macOS-dots, dan animasi "WELCOME").
+* **Dashboard:** Antarmuka UI premium (Dark Mode, Glassmorphism, macOS-dots").
 * **Live Telemetry:** Monitoring System Uptime, CPU, RAM, dan Live Network Traffic Chart langsung dari Web.
-* **Hybrid Mode:** Mendukung generasi konfigurasi Bug SNI (Native) dan Bug CDN (Cloudflare Argo).
+* **Hybrid Mode:** Mendukung konfigurasi Bug CDN & SNI.
 * **Multi-Protocol:** VLESS, VMESS, dan TROJAN via protokol WebSocket (WS).
 * **Zero Trust Integration:** Terhubung otomatis ke Cloudflare Tunnels tanpa perlu membuka *inbound ports* di server asal.
 * **Auto-Fallback:** Distribusi *traffic* cerdas ke port 8001 (Xray) dan 3000 (Node.js).
@@ -30,7 +30,7 @@ Sebelum melakukan *deployment*, pastikan variabel berikut disiapkan:
 
 ---
 
-## 🚂 Deployment via Railway (Rekomendasi)
+## 🚂 Deployment via Railway
 
 Platform Railway adalah cara termudah dan tercepat untuk menjalankan Gateway Core ini tanpa perlu menyewa VPS.
 
@@ -39,7 +39,7 @@ Platform Railway adalah cara termudah dan tercepat untuk menjalankan Gateway Cor
 2. Buka [Railway.app](https://railway.app/) dan *login* menggunakan akun GitHub.
 3. Klik tombol **New Project** pada *dashboard* utama.
 4. Pilih opsi **Deploy from GitHub repo**.
-5. Cari dan pilih repositori `mediafairy-gateway` yang baru saja kamu *fork*.
+5. Cari dan pilih repositori `argo-hybrid` yang baru saja kamu *fork*.
 6. Klik **Deploy Now**. *(Catatan: Proses deploy awal mungkin akan gagal atau berjalan tanpa VPN karena variabel belum diisi, biarkan saja).*
 
 ### Langkah 2: Tambahkan Environment Variables
@@ -47,14 +47,14 @@ Agar mesin Xray dan tunnel Argo dapat berjalan, kamu wajib memasukkan konfiguras
 1. Klik kotak aplikasi kamu di *dashboard* Railway.
 2. Pindah ke tab **Variables**.
 3. Klik **New Variable** (atau *RAW Editor* untuk *paste* massal) dan tambahkan variabel berikut satu per satu:
-   * `UUID` : *(Isi dengan UUID milikmu, contoh: `9afd1229-b893-40c1-84dd-51e7ce204913`)*
+   * `UUID` : *(Isi dengan UUID V4 milikmu, contoh: `9afd1229-b893-40c1-84dd-51e7ce204913`)*
    * `ARGO_DOMAIN` : *(Isi dengan domain Zero Trust kamu, contoh: `tes.domainkamu.com`)*
    * `ARGO_AUTH` : *(Isi dengan token dari tunnel Cloudflare `ey********`, tanpa cloudflared.exe service install)*
-   * `CFIP` : *(Opsional, isi dengan Bug IP CDN/SNI jika ingin mengganti default `saas.sin.fan`)*
+   * `CFIP` : *(Opsional, isi dengan Bug IP CDN jika ingin mengganti default `saas.sin.fan`)*
 4. Setelah variabel dimasukkan, Railway akan mendeteksi perubahan dan melakukan **Redeploy** secara otomatis. Tunggu hingga proses *build* selesai.
 
 ### Langkah 3: Akses Web Dashboard (Opsional)
-Untuk melihat tampilan "WELCOME Dashboard" dan memantau *traffic* server:
+Untuk melihat tampilan "Dashboard" dan memantau *traffic* server:
 1. Masuk ke tab **Settings** di aplikasi Railway kamu.
 2. Gulir ke bawah hingga menemukan bagian **Networking** > **Public Networking**.
 3. Klik tombol **Generate Domain**.
